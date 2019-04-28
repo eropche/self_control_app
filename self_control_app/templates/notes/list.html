@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        {% if notes %}
+            <table class='table'>
+                {% for note in notes %}
+                    <tr>
+                        <td><a href='{% url 'notes:note' note.id %}'>{{ note.title }}</a></td>
+                        <td>{{ note.creation_date|date:'d-m-y H:i' }}</td>
+                        <td>
+                            {% if note.most_important %}
+                                <i class="fa fa-exclamation  fa-2x"></i>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href='{% url 'notes:edit_note' note.id %}'><button type="submit" class='btn btn-secondary'>Edit</button>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No notes.</p>
+        {% endif %}
+        <a href='{% url 'notes:create_note' %}'><button type="submit" class='btn btn-secondary'>+ Note</button></a>
+    </div>
+{% endblock content %}

@@ -1,0 +1,8 @@
+{% load i18n account_tags %}{% blocktrans with site_name=current_site.name %}
+
+    Hello.
+    This is Self Control App Bot.
+
+    To confirm this email address, go to {{ activate_url }}
+
+{% endblocktrans %}

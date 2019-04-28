@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Self Control Simple App</h2>
+        <div>Control yourself and your life, {{ user.get_username }}</div>
+
+        <div class="base-content">
+            <div class="spent-yesterday">
+                Spent yesterday: 5545 rub
+            </div>    
+            {% if important_note %}
+                <div class="important-note">
+                    <table style="border: 3px solid #212121;">
+                        <tr><td style="border-bottom: 3px solid #212121; padding: 6px">
+                        <a href='{% url 'notes:edit_note' important_note.id %}'>{{ important_note.title }}</a>
+                        </td></tr>
+                        <tr><td style="padding: 6px;">
+                        {{ important_note.text|safe }}
+                        </td></tr>
+                    </table>
+                </div> 
+            {% endif %}   
+        </div>
+    </div>
+{% endblock content %}

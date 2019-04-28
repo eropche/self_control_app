@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        {% load staticfiles %}
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript jquery='full' %}
+        <link rel="stylesheet" type="text/css" href="{% static 'notes/style.css' %}" />
+
+        <title>{% block title %}Self Control App{% endblock %}</title>
+    </head>
+        {% block content %}{% endblock content %}
+        {% block footer %}{% endblock footer %}
+    </body>
+</html>

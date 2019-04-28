@@ -1,0 +1,7 @@
+{% extends "base_on_auth.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h1>{% trans "Email confirmed" %}</h1>
+    <p>{% blocktrans with email=confirmation.email_address.email %}You have confirmed <b>{{ email }}</b>{% endblocktrans %}</p>
+{% endblock %}
